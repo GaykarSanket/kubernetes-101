@@ -1,0 +1,3 @@
+resources:  
+  - db-deploy.yaml
+  - web-deploy.yaml

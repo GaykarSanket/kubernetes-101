@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-svc
+  labels:
+    name: web
+    app: demo
+    type: svc
+spec:
+  selector:
+    name: web 
+    app: demo
+    type: pod
+  type: NodePort
+  ports:
+   - port: 80
+     targetPort: 5000
+     protocol: TCP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+  labels:
+    name: web
+    app: demo
+    type: deployment
+spec:
+  selector:
+    matchLabels:
+      name: web
+      app: demo
+      type: pod
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        name: web
+        app: demo
+        type: pod
+    spec:
+      containers:
+        - name: web
+          image: janakiramm/web
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+              name: http
+              protocol: TCP
