@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  test:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-07-02T12:11:42.400950979+05:30"
+    description: A Helm chart for Kubernetes
+    digest: 195eeb93a67db00b2147c9dab4366b2d93dadd4b83459b3d22bdb4f2b02cdc4a
+    name: test
+    urls:
+    - https://gaykarsanket.github.io/kubernetes-101/test-0.1.0.tgz
+    version: 0.1.0
+generated: "2019-07-02T12:11:42.399952564+05:30"
